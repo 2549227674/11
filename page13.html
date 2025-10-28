@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>团队介绍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family/Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .team-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .role-badge {
+            background: linear-gradient(135deg, #4A90E2 0%, #F5A623 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body class="h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+    <div class="w-full h-screen p-8 flex flex-col relative">
+        <!-- 背景装饰元素 -->
+        <div class="absolute top-20 right-20 w-32 h-32 bg-blue-100 rounded-full opacity-40 floating-element"></div>
+        <div class="absolute bottom-20 left-20 w-24 h-24 bg-orange-100 rounded-full opacity-40 floating-element" style="animation-delay: -3s;"></div>
+        
+        <!-- 标题区域 -->
+        <div class="text-center mb-6 fade-in">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Noto Serif SC', serif;">
+                我们是让这一切发生的<span class="text-blue-600">人</span>
+            </h1>
+            <p class="text-xl text-gray-600">专业团队，丰富经验，共同愿景</p>
+        </div>
+        
+        <!-- 团队展示区域 -->
+        <div class="flex-1 flex items-center justify-center">
+            <div class="max-w-6xl mx-auto">
+                <!-- 团队插图 -->
+                <div class="text-center mb-6 fade-in">
+                    <img src="team_illustration.png" alt="团队插图" class="w-64 h-56 mx-auto rounded-3xl shadow-2xl">
+                </div>
+                
+                <!-- 团队成员卡片 -->
+                <div class="grid grid-cols-3 gap-8 fade-in">
+                    <!-- CEO -->
+                    <div class="team-card rounded-3xl p-8 shadow-xl text-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-4xl">👨‍💼</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">张三</h3>
+                        <div class="role-badge text-lg font-bold mb-4">CEO</div>
+                        <div class="space-y-2 mb-6">
+                            <div class="bg-blue-50 p-2 rounded-lg">
+                                <span class="text-sm font-semibold text-blue-800">连续创业者</span>
+                            </div>
+                            <div class="bg-orange-50 p-2 rounded-lg">
+                                <span class="text-sm font-semibold text-orange-800">校园市场洞察专家</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600">5年创业经验，成功运营过2个校园项目，深谙学生用户需求和市场特点</p>
+                    </div>
+                    
+                    <!-- CTO -->
+                    <div class="team-card rounded-3xl p-8 shadow-xl text-center">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-4xl">👨‍💻</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">李四</h3>
+                        <div class="role-badge text-lg font-bold mb-4">CTO</div>
+                        <div class="space-y-2 mb-6">
+                            <div class="bg-green-50 p-2 rounded-lg">
+                                <span class="text-sm font-semibold text-green-800">全栈开发专家</span>
+                            </div>
+                            <div class="bg-purple-50 p-2 rounded-lg">
+                                <span class="text-sm font-semibold text-purple-800">AI原型主导者</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600">8年技术开发经验，精通前后端技术，负责本次项目的技术架构和AI原型开发</p>
+                    </div>
+                    
+                    <!-- COO -->
+                    <div class="team-card rounded-3xl p-8 shadow-xl text-center">
+                        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-4xl">👨‍🎓</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">王五</h3>
+                        <div class="role-badge text-lg font-bold mb-4">COO</div>
+                        <div class="space-y-2 mb-6">
+                            <div class="bg-orange-50 p-2 rounded-lg">
+                                <span class="text-sm font-semibold text-orange-800">学生会主席</span>
+                            </div>
+                            <div class="bg-red-50 p-2 rounded-lg">
+                                <span class="text-sm font-semibold text-red-800">校园活动专家</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600">丰富的校园活动策划和地推经验，负责项目运营和用户增长策略</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部总结 -->
+        <div class="mt-8 text-center fade-in">
+            <div class="inline-flex items-center space-x-8 bg-white/90 backdrop-blur-sm rounded-full px-8 py-4 shadow-xl">
+                <span class="text-gray-700 font-medium">我们的故事，刚刚开始</span>
+                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                <span class="text-blue-600 font-medium">谢谢！</span>
+                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                <span class="text-orange-600 font-medium">期待与您合作</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载动画
+        anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 1000
+        })
+        .add({
+            targets: '.fade-in',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(200)
+        });
+
+        // 团队卡片依次显示动画
+        anime({
+            targets: '.team-card',
+            scale: [0.8, 1],
+            opacity: [0, 1],
+            duration: 800,
+            delay: anime.stagger(200, {start: 1500}),
+            easing: 'easeOutElastic(1, .8)'
+        });
+
+        // 团队卡片悬停效果
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this.querySelector('.text-4xl'),
+                    scale: [1, 1.2],
+                    rotate: [0, 15],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this.querySelector('.text-4xl'),
+                    scale: [1.2, 1],
+                    rotate: [15, 0],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+
+        // 结束动画
+        anime({
+            targets: '.fade-in:last-child',
+            scale: [0.9, 1],
+            duration: 1000,
+            delay: 3000,
+            easing: 'easeOutElastic(1, .8)'
+        });
+    </script>
+<script>
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            window.parent.postMessage('go-next', '*');
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            window.parent.postMessage('go-prev', '*');
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解决方案展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .solution-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+            backdrop-filter: blur(10px);
+        }
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .icon-gradient {
+            background: linear-gradient(135deg, #4A90E2 0%, #F5A623 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+    <div class="w-full h-screen p-8 flex flex-col">
+        <!-- 标题区域 -->
+        <div class="mb-6 fade-in">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Noto Serif SC', serif;">
+                我们的答案：一个为<span class="text-blue-600">真实需求</span>而生的智慧空间
+            </h1>
+            <p class="text-xl text-gray-600">三大核心功能模块，精准解决用户痛点</p>
+        </div>
+        
+        <!-- 解决方案卡片区域 -->
+        <div class="flex-1 grid grid-cols-3 gap-8">
+            <!-- 智慧自习空间 -->
+            <div class="solution-card rounded-3xl p-8 shadow-xl fade-in">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-4">📅</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">智慧自习空间</h3>
+                    <p class="text-gray-600">智能预约，座位无忧</p>
+                </div>
+                
+                <div class="mb-6">
+                    <img src="dashboard.png" alt="预约界面" class="w-full h-40 object-cover rounded-xl shadow-md">
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-blue-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-blue-800 mb-2">核心功能</h4>
+                        <ul class="text-sm text-blue-700 space-y-1">
+                            <li>• 实时座位状态查看</li>
+                            <li>• 在线预约锁定座位</li>
+                            <li>• 智能推荐最佳位置</li>
+                            <li>• 座位使用时长提醒</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-orange-800 mb-2">调研验证</h4>
+                        <p class="text-sm text-orange-700">
+                            <span class="bg-orange-200 px-2 py-1 rounded-lg font-semibold">'在线预约'</span> 
+                            以3.15分成为需求度最高的基础功能
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 品质咖啡社交 -->
+            <div class="solution-card rounded-3xl p-8 shadow-xl fade-in">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-4">☕</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">品质咖啡社交</h3>
+                    <p class="text-gray-600">提神醒脑，交流碰撞</p>
+                </div>
+                
+                <div class="mb-6">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/bcd03ccbc60c7bc246afb51bb95a424ce0dd032e.jpg" alt="咖啡点单界面" class="w-full h-40 object-cover rounded-xl shadow-md">
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-orange-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-orange-800 mb-2">核心功能</h4>
+                        <ul class="text-sm text-orange-700 space-y-1">
+                            <li>• 一键点单，快速配送</li>
+                            <li>• 多种咖啡饮品选择</li>
+                            <li>• 学习套餐优惠组合</li>
+                            <li>• 咖啡师现场制作</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-green-800 mb-2">商业模式</h4>
+                        <p class="text-sm text-green-700">
+                            超60%用户接受<span class="bg-green-200 px-2 py-1 rounded-lg font-semibold">5-15元时租</span>，
+                            商业模式基础坚实
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 活力社群连接 -->
+            <div class="solution-card rounded-3xl p-8 shadow-xl fade-in">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-4">👥</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">活力社群连接</h3>
+                    <p class="text-gray-600">学伴匹配，共同成长</p>
+                </div>
+                
+                <div class="mb-6">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cbe.berkeley.edu/a7397aee5803fb889302bdae92ecf6cd1b008882.jpg" alt="活动中心" class="w-full h-40 object-cover rounded-xl shadow-md">
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-green-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-green-800 mb-2">核心功能</h4>
+                        <ul class="text-sm text-green-700 space-y-1">
+                            <li>• 智能学伴匹配系统</li>
+                            <li>• 学习小组自动组建</li>
+                            <li>• 主题活动定期举办</li>
+                            <li>• 学习成果分享展示</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-purple-800 mb-2">创新亮点</h4>
+                        <p class="text-sm text-purple-700">
+                            创新功能<span class="bg-purple-200 px-2 py-1 rounded-lg font-semibold">'学伴匹配'</span>
+                            获得2.95分高分认可
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部总结 -->
+        <div class="mt-8 text-center fade-in">
+            <div class="inline-flex items-center space-x-8 bg-white/80 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg">
+                <div class="flex items-center">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                    <span class="text-gray-700 font-medium">智慧预约</span>
+                </div>
+                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                <div class="flex items-center">
+                    <div class="w-3 h-3 bg-orange-500 rounded-full mr-2"></div>
+                    <span class="text-gray-700 font-medium">品质服务</span>
+                </div>
+                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                <div class="flex items-center">
+                    <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                    <span class="text-gray-700 font-medium">社群连接</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载动画
+        anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 800
+        })
+        .add({
+            targets: '.fade-in',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(200)
+        });
+
+        // 卡片悬停动画
+        document.querySelectorAll('.solution-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                anime({
+                    targets: card.querySelector('.text-5xl'),
+                    scale: [1, 1.2],
+                    rotate: [0, 10],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                anime({
+                    targets: card.querySelector('.text-5xl'),
+                    scale: [1.2, 1],
+                    rotate: [10, 0],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+    </script>
+<script>
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            window.parent.postMessage('go-next', '*');
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            window.parent.postMessage('go-prev', '*');
+        }
+    });
+</script>
+</body>
+</html>

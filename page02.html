@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>市场痛点分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .highlight-number {
+            background: linear-gradient(135deg, #F5A623 0%, #FF6B35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+    <div class="w-full h-screen p-8 flex flex-col">
+        <!-- 标题区域 -->
+        <div class="mb-6 fade-in">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Noto Serif SC', serif;">
+                数据证明：我们身边的<span class="text-blue-600">"学习空间危机"</span>
+            </h1>
+            <p class="text-xl text-gray-600">基于超过100份真实调研数据的深度分析</p>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <!-- 左侧：核心痛点 -->
+            <div class="fade-in">
+                <div class="bg-white rounded-3xl p-8 shadow-xl h-full flex flex-col">
+                    <div class="flex items-center mb-6">
+                        <div class="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                        <h3 class="text-2xl font-bold text-gray-800">最核心的痛点</h3>
+                    </div>
+                    
+                    <!-- 关键数据展示 -->
+                    <div class="text-center mb-6">
+                        <div class="highlight-number text-5xl font-black mb-2">45.68%</div>
+                        <p class="text-lg text-gray-600">的同学<span class="bg-yellow-100 px-2 py-1 rounded-lg font-semibold">"总是"</span>为找不到座位而烦恼</p>
+                    </div>
+                    
+                    <!-- 折线图容器 -->
+                    <div id="lineChart" class="flex-1 min-h-0"></div>
+                    
+                    <div class="mt-4 text-sm text-gray-500 text-center">
+                        图：学生找座位困扰程度分布
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧：支撑数据 -->
+            <div class="space-y-8">
+                <!-- 上方饼图 -->
+                <div class="fade-in">
+                    <div class="bg-white rounded-3xl p-6 shadow-xl">
+                        <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="w-3 h-3 bg-blue-500 rounded-full mr-3"></span>
+                            我们都去哪儿学习？
+                        </h4>
+                        <div id="pieChart" class="h-56"></div>
+                        <p class="text-sm text-gray-500 text-center mt-2">现有主流选择的局限性分析</p>
+                    </div>
+                </div>
+                
+                <!-- 下方柱状图 -->
+                <div class="fade-in">
+                    <div class="bg-white rounded-3xl p-6 shadow-xl">
+                        <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                            协作需求旺盛但空间匮乏
+                        </h4>
+                        <div id="barChart" class="h-40"></div>
+                        <div class="text-center mt-4">
+                            <span class="text-2xl font-bold text-green-600">超60%</span>
+                            <span class="text-gray-600 ml-2">同学每周有1-4次小组讨论需求</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载动画
+        anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 800
+        })
+        .add({
+            targets: '.fade-in',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(200)
+        });
+
+        // 折线图 - 找座位困扰程度
+        const lineChart = echarts.init(document.getElementById('lineChart'));
+        const lineOption = {
+            grid: { top: 20, right: 20, bottom: 40, left: 60 },
+            xAxis: {
+                type: 'category',
+                data: ['从不', '偶尔', '有时', '经常', '总是'],
+                axisLine: { lineStyle: { color: '#4A90E2' } },
+                axisLabel: { color: '#666', fontSize: 12 }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: { lineStyle: { color: '#4A90E2' } },
+                axisLabel: { color: '#666', fontSize: 12 },
+                splitLine: { lineStyle: { color: '#f0f0f0' } }
+            },
+            series: [{
+                data: [8.5, 15.2, 22.1, 18.7, 45.68],
+                type: 'line',
+                smooth: true,
+                lineStyle: { color: '#F5A623', width: 4 },
+                itemStyle: { color: '#F5A623', borderWidth: 3, borderColor: '#fff' },
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0, y: 0, x2: 0, y2: 1,
+                        colorStops: [
+                            { offset: 0, color: 'rgba(245, 166, 35, 0.3)' },
+                            { offset: 1, color: 'rgba(245, 166, 35, 0.05)' }
+                        ]
+                    }
+                },
+                markPoint: {
+                    data: [{ type: 'max', name: '最高值' }],
+                    itemStyle: { color: '#FF6B35' }
+                }
+            }]
+        };
+        lineChart.setOption(lineOption);
+
+        // 饼图 - 学习场所分布
+        const pieChart = echarts.init(document.getElementById('pieChart'));
+        const pieOption = {
+            series: [{
+                type: 'pie',
+                radius: ['40%', '70%'],
+                center: ['50%', '50%'],
+                data: [
+                    { value: 35, name: '图书馆', itemStyle: { color: '#4A90E2' } },
+                    { value: 28, name: '宿舍', itemStyle: { color: '#F5A623' } },
+                    { value: 18, name: '咖啡厅', itemStyle: { color: '#5DADE2' } },
+                    { value: 12, name: '教室', itemStyle: { color: '#AED6F1' } },
+                    { value: 7, name: '其他', itemStyle: { color: '#F8C471' } }
+                ],
+                label: {
+                    show: true,
+                    formatter: '{b}: {c}%',
+                    fontSize: 12,
+                    color: '#666'
+                },
+                labelLine: { show: true }
+            }]
+        };
+        pieChart.setOption(pieOption);
+
+        // 柱状图 - 小组讨论需求
+        const barChart = echarts.init(document.getElementById('barChart'));
+        const barOption = {
+            grid: { top: 20, right: 20, bottom: 40, left: 60 },
+            xAxis: {
+                type: 'category',
+                data: ['0次', '1-2次', '3-4次', '5-6次', '7次以上'],
+                axisLine: { lineStyle: { color: '#4A90E2' } },
+                axisLabel: { color: '#666', fontSize: 12 }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: { lineStyle: { color: '#4A90E2' } },
+                axisLabel: { color: '#666', fontSize: 12 },
+                splitLine: { lineStyle: { color: '#f0f0f0' } }
+            },
+            series: [{
+                data: [25, 38, 22, 10, 5],
+                type: 'bar',
+                itemStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0, y: 0, x2: 0, y2: 1,
+                        colorStops: [
+                            { offset: 0, color: '#5DADE2' },
+                            { offset: 1, color: '#4A90E2' }
+                        ]
+                    },
+                    borderRadius: [4, 4, 0, 0]
+                },
+                emphasis: {
+                    itemStyle: { color: '#F5A623' }
+                }
+            }]
+        };
+        barChart.setOption(barOption);
+
+        // 响应式处理
+        window.addEventListener('resize', () => {
+            lineChart.resize();
+            pieChart.resize();
+            barChart.resize();
+        });
+    </script>
+<script>
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            window.parent.postMessage('go-next', '*');
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            window.parent.postMessage('go-prev', '*');
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>业务飞轮模型</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family/Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .flywheel-container {
+            position: relative;
+        }
+        .rotating {
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .arrow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        .arrow-right {
+            border-left: 15px solid #4A90E2;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+        .arrow-down {
+            border-top: 15px solid #F5A623;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+        }
+        .arrow-left {
+            border-right: 15px solid #5DADE2;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+    </style>
+</head>
+<body class="h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+    <div class="w-full h-screen p-8 flex flex-col">
+        <!-- 标题区域 -->
+        <div class="text-center mb-6 fade-in">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Noto Serif SC', serif;">
+                我们的增长引擎：<span class="text-blue-600">自我强化</span>的业务飞轮
+            </h1>
+            <p class="text-xl text-gray-600">三大业务相互促进，形成闭环可持续增长模型</p>
+        </div>
+        
+        <!-- 飞轮图区域 -->
+        <div class="flex-1 flex items-center justify-center fade-in">
+            <div class="flywheel-container">
+                <img src="flywheel.png" alt="业务飞轮" class="w-full max-w-4xl rotating">
+                
+                <!-- 箭头装饰 -->
+                <div class="arrow arrow-right" style="top: 45%; right: 25%;"></div>
+                <div class="arrow arrow-down" style="bottom: 25%; left: 45%;"></div>
+                <div class="arrow arrow-left" style="top: 45%; left: 25%;"></div>
+            </div>
+        </div>
+        
+        <!-- 飞轮说明 -->
+        <div class="grid grid-cols-3 gap-8 mb-6 fade-in">
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-3xl">📚</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">智慧自习</h3>
+                <p class="text-sm text-gray-600 mb-4">带来稳定基础客流</p>
+                <div class="text-xs text-blue-600 bg-blue-50 rounded-lg p-2">
+                    支撑咖啡点单和社群活动
+                </div>
+            </div>
+            
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl text-center">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-3xl">☕</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">咖啡点单</h3>
+                <p class="text-sm text-gray-600 mb-4">提升单客价值与利润</p>
+                <div class="text-xs text-orange-600 bg-orange-50 rounded-lg p-2">
+                    支持空间运营与扩张
+                </div>
+            </div>
+            
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-3xl">👥</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">社群活动</h3>
+                <p class="text-sm text-gray-600 mb-4">提升品牌粘性与复购</p>
+                <div class="text-xs text-green-600 bg-green-50 rounded-lg p-2">
+                    反哺自习和点单业务
+                </div>
+            </div>
+        </div>
+        
+        <!-- 结论 -->
+        <div class="text-center fade-in">
+            <div class="inline-flex items-center space-x-4 bg-white/90 backdrop-blur-sm rounded-full px-8 py-4 shadow-xl">
+                <div class="w-3 h-3 bg-green-500 rounded-full pulse"></div>
+                <span class="text-xl font-bold text-gray-800">这是一个闭环的、可持续的增长模型</span>
+                <div class="w-3 h-3 bg-green-500 rounded-full pulse" style="animation-delay: -1s;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载动画
+        anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 1000
+        })
+        .add({
+            targets: '.fade-in',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(200)
+        });
+
+        // 悬停暂停旋转
+        const flywheel = document.querySelector('.rotating');
+        flywheel.addEventListener('mouseenter', () => {
+            flywheel.style.animationPlayState = 'paused';
+        });
+        
+        flywheel.addEventListener('mouseleave', () => {
+            flywheel.style.animationPlayState = 'running';
+        });
+
+        // 卡片悬停效果
+        document.querySelectorAll('.bg-white\\/90').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this.querySelector('.text-3xl'),
+                    scale: [1, 1.2],
+                    rotate: [0, 10],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this.querySelector('.text-3xl'),
+                    scale: [1.2, 1],
+                    rotate: [10, 0],
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+    </script>
+<script>
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            window.parent.postMessage('go-next', '*');
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            window.parent.postMessage('go-prev', '*');
+        }
+    });
+</script>
+</body>
+</html>

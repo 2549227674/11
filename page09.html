@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞争优势分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family/Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .competitor-card {
+            transition: all 0.3s ease;
+        }
+        .competitor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .star-icon {
+            color: #F5A623;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body class="h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+    <div class="w-full h-screen p-8 flex flex-col">
+        <!-- 标题区域 -->
+        <div class="text-center mb-6 fade-in">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Noto Serif SC', serif;">
+                我们为何<span class="text-blue-600">与众不同</span>？
+            </h1>
+            <p class="text-xl text-gray-600">独特的市场定位，填补现有服务空白</p>
+        </div>
+        
+        <!-- 主要内容区域 -->
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <!-- 左侧：竞争矩阵图 -->
+            <div class="fade-in">
+                <div class="bg-white rounded-3xl p-8 shadow-xl h-full flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">竞争定位矩阵</h3>
+                    
+                    <!-- 四象限图 -->
+                    <div id="competitiveMatrix" class="flex-1 min-h-0"></div>
+                    
+                    <!-- 轴标签 -->
+                    <div class="mt-4 text-center">
+                        <p class="text-sm text-gray-600">
+                            <span class="bg-blue-100 px-2 py-1 rounded-lg font-semibold">数据验证的创新定位</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧：竞争者分析 -->
+            <div class="space-y-6 fade-in">
+                <!-- 图书馆 -->
+                <div class="competitor-card bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold text-gray-800">图书馆</h4>
+                        <div class="flex space-x-1">
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-gray-300">★</span>
+                            <span class="text-gray-300">★</span>
+                            <span class="text-gray-300">★</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-sm text-green-600 font-semibold">优势</p>
+                            <p class="text-sm text-gray-600">免费、安静、学习氛围</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-red-600 font-semibold">劣势</p>
+                            <p class="text-sm text-gray-600">座位紧张、无服务、开放时间有限</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 宿舍 -->
+                <div class="competitor-card bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold text-gray-800">宿舍</h4>
+                        <div class="flex space-x-1">
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-gray-300">★</span>
+                            <span class="text-gray-300">★</span>
+                            <span class="text-gray-300">★</span>
+                            <span class="text-gray-300">★</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-sm text-green-600 font-semibold">优势</p>
+                            <p class="text-sm text-gray-600">便利、舒适、免费</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-red-600 font-semibold">劣势</p>
+                            <p class="text-sm text-gray-600">干扰多、缺乏学习氛围、易分心</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 校外咖啡馆 -->
+                <div class="competitor-card bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold text-gray-800">校外咖啡馆</h4>
+                        <div class="flex space-x-1">
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-gray-300">★</span>
+                            <span class="text-gray-300">★</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-sm text-green-600 font-semibold">优势</p>
+                            <p class="text-sm text-gray-600">环境好、有咖啡、氛围轻松</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-red-600 font-semibold">劣势</p>
+                            <p class="text-sm text-gray-600">距离远、价格高、不适合长时间学习</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 我们的优势 -->
+                <div class="bg-gradient-to-r from-blue-500 to-orange-500 rounded-2xl p-6 shadow-lg text-white">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold">时习·知享</h4>
+                        <div class="flex space-x-1">
+                            <span class="star-icon">★</span>
+                            <span class="star-icon">★</span>
+                            <span class="star-icon">★</span>
+                            <span class="star-icon">★</span>
+                            <span class="star-icon">★</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-sm font-semibold mb-2">核心优势</p>
+                            <p class="text-sm opacity-90">智能预约、品质服务、社群连接</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold mb-2">独特价值</p>
+                            <p class="text-sm opacity-90">专注学习、价格合理、便利高效</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部总结 -->
+        <div class="mt-8 text-center fade-in">
+            <div class="inline-flex items-center space-x-6 bg-white/90 backdrop-blur-sm rounded-full px-8 py-4 shadow-xl">
+                <span class="text-gray-700 font-medium">市场定位</span>
+                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                <span class="text-blue-600 font-medium">右上角空白区域</span>
+                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                <span class="text-orange-600 font-medium">数据验证的创新定位</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载动画
+        anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 800
+        })
+        .add({
+            targets: '.fade-in',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(200)
+        });
+
+        // 竞争矩阵图
+        const competitiveMatrix = echarts.init(document.getElementById('competitiveMatrix'));
+        const matrixOption = {
+            grid: { top: 40, right: 40, bottom: 60, left: 60 },
+            xAxis: {
+                type: 'value',
+                name: '学习专注度',
+                nameLocation: 'middle',
+                nameGap: 30,
+                min: 0,
+                max: 100,
+                axisLine: { lineStyle: { color: '#4A90E2' } },
+                axisLabel: { color: '#666', fontSize: 12 },
+                splitLine: { lineStyle: { color: '#f0f0f0' } }
+            },
+            yAxis: {
+                type: 'value',
+                name: '社交体验',
+                nameLocation: 'middle',
+                nameGap: 40,
+                min: 0,
+                max: 100,
+                axisLine: { lineStyle: { color: '#4A90E2' } },
+                axisLabel: { color: '#666', fontSize: 12 },
+                splitLine: { lineStyle: { color: '#f0f0f0' } }
+            },
+            series: [{
+                type: 'scatter',
+                symbolSize: function(data) {
+                    return Math.sqrt(data[2]) * 8;
+                },
+                data: [
+                    [85, 20, 80, '图书馆', '#4A90E2'],
+                    [30, 40, 60, '宿舍', '#7F8C8D'],
+                    [60, 70, 70, '校外咖啡馆', '#F5A623'],
+                    [80, 85, 100, '时习·知享', '#FF6B35']
+                ],
+                itemStyle: {
+                    color: function(params) {
+                        return params.data[4];
+                    },
+                    opacity: 0.8,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: true,
+                    position: 'top',
+                    formatter: '{@[3]}',
+                    color: '#333',
+                    fontSize: 12,
+                    fontWeight: 'bold'
+                },
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowColor: 'rgba(0, 0, 0, 0.3)'
+                    }
+                }
+            }],
+            // 添加象限分割线
+            markLine: {
+                silent: true,
+                lineStyle: {
+                    color: '#ccc',
+                    type: 'dashed',
+                    width: 1
+                },
+                data: [
+                    [{ coord: [50, 0] }, { coord: [50, 100] }],
+                    [{ coord: [0, 50] }, { coord: [100, 50] }]
+                ]
+            }
+        };
+        competitiveMatrix.setOption(matrixOption);
+
+        // 响应式处理
+        window.addEventListener('resize', () => {
+            competitiveMatrix.resize();
+        });
+
+        // 竞争者卡片动画
+        anime({
+            targets: '.competitor-card',
+            translateX: [-50, 0],
+            opacity: [0, 1],
+            duration: 800,
+            delay: anime.stagger(200, {start: 1000}),
+            easing: 'easeOutExpo'
+        });
+    </script>
+<script>
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            window.parent.postMessage('go-next', '*');
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            window.parent.postMessage('go-prev', '*');
+        }
+    });
+</script>
+</body>
+</html>

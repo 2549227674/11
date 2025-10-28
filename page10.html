@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>财务预测</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family/Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .financial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .financial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .highlight-number {
+            background: linear-gradient(135deg, #F5A623 0%, #FF6B35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+    <div class="w-full h-screen p-8 flex flex-col">
+        <!-- 标题区域 -->
+        <div class="text-center mb-6 fade-in">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Noto Serif SC', serif;">
+                稳健的<span class="text-blue-600">财务前景</span>与投资价值
+            </h1>
+            <p class="text-xl text-gray-600">基于真实数据的科学预测，确保投资回报可期</p>
+        </div>
+        
+        <!-- 主要内容区域 -->
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <!-- 左侧：收入增长曲线 -->
+            <div class="fade-in">
+                <div class="financial-card rounded-3xl p-8 shadow-xl h-full flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">3年收入增长预测</h3>
+                    <div id="revenueChart" class="flex-1 min-h-0"></div>
+                    
+                    <!-- 关键财务指标 -->
+                    <div class="mt-6 grid grid-cols-3 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-xl text-center">
+                            <div class="text-2xl font-bold text-blue-600">350万</div>
+                            <div class="text-sm text-blue-700">第1年收入</div>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-xl text-center">
+                            <div class="text-2xl font-bold text-green-600">890万</div>
+                            <div class="text-sm text-green-700">第2年收入</div>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-xl text-center">
+                            <div class="text-2xl font-bold text-orange-600">1520万</div>
+                            <div class="text-sm text-orange-700">第3年收入</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧：收入构成 -->
+            <div class="fade-in">
+                <div class="financial-card rounded-3xl p-8 shadow-xl h-full flex flex-col">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">收入构成分析</h3>
+                    <div id="revenueComposition" class="flex-1 min-h-0"></div>
+                    
+                    <!-- 收入来源说明 -->
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-center justify-between bg-blue-50 p-3 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-blue-500 rounded-full mr-3"></div>
+                                <span class="text-sm font-medium">座位费收入</span>
+                            </div>
+                            <span class="text-sm text-blue-600 font-bold">60%</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-orange-50 p-3 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-orange-500 rounded-full mr-3"></div>
+                                <span class="text-sm font-medium">饮品销售</span>
+                            </div>
+                            <span class="text-sm text-orange-600 font-bold">25%</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-green-50 p-3 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-green-500 rounded-full mr-3"></div>
+                                <span class="text-sm font-medium">增值服务</span>
+                            </div>
+                            <span class="text-sm text-green-600 font-bold">15%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部核心假设 -->
+        <div class="mt-8 fade-in">
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl">
+                <h4 class="text-lg font-bold text-gray-800 mb-4 text-center">核心财务假设</h4>
+                <div class="grid grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600 mb-2">25%→40%</div>
+                        <div class="text-sm text-gray-600">座位使用率提升</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-orange-600 mb-2">65%</div>
+                        <div class="text-sm text-gray-600">咖啡毛利率</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-green-600 mb-2">8元</div>
+                        <div class="text-sm text-gray-600">平均客单价</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-purple-600 mb-2">2.5次</div>
+                        <div class="text-sm text-gray-600">月均复购率</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载动画
+        anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 800
+        })
+        .add({
+            targets: '.fade-in',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(200)
+        });
+
+        // 收入增长曲线图
+        const revenueChart = echarts.init(document.getElementById('revenueChart'));
+        const revenueOption = {
+            grid: { top: 20, right: 20, bottom: 40, left: 60 },
+            xAxis: {
+                type: 'category',
+                data: ['第1年', '第2年', '第3年'],
+                axisLine: { lineStyle: { color: '#4A90E2' } },
+                axisLabel: { color: '#666', fontSize: 12 }
+            },
+            yAxis: {
+                type: 'value',
+                name: '收入(万元)',
+                axisLine: { lineStyle: { color: '#4A90E2' } },
+                axisLabel: { color: '#666', fontSize: 12 },
+                splitLine: { lineStyle: { color: '#f0f0f0' } }
+            },
+            series: [{
+                data: [350, 890, 1520],
+                type: 'line',
+                smooth: true,
+                lineStyle: { color: '#4A90E2', width: 4 },
+                itemStyle: { color: '#4A90E2', borderWidth: 3, borderColor: '#fff' },
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0, y: 0, x2: 0, y2: 1,
+                        colorStops: [
+                            { offset: 0, color: 'rgba(74, 144, 226, 0.3)' },
+                            { offset: 1, color: 'rgba(74, 144, 226, 0.05)' }
+                        ]
+                    }
+                },
+                label: {
+                    show: true,
+                    position: 'top',
+                    formatter: '{c}万',
+                    color: '#666',
+                    fontSize: 12,
+                    fontWeight: 'bold'
+                }
+            }]
+        };
+        revenueChart.setOption(revenueOption);
+
+        // 收入构成饼图
+        const revenueComposition = echarts.init(document.getElementById('revenueComposition'));
+        const compositionOption = {
+            series: [{
+                type: 'pie',
+                radius: ['40%', '70%'],
+                center: ['50%', '50%'],
+                data: [
+                    { value: 60, name: '座位费收入', itemStyle: { color: '#4A90E2' } },
+                    { value: 25, name: '饮品销售', itemStyle: { color: '#F5A623' } },
+                    { value: 15, name: '增值服务', itemStyle: { color: '#5DADE2' } }
+                ],
+                label: {
+                    show: true,
+                    formatter: '{b}\n{c}%',
+                    fontSize: 12,
+                    color: '#666'
+                },
+                labelLine: { show: true },
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }]
+        };
+        revenueComposition.setOption(compositionOption);
+
+        // 响应式处理
+        window.addEventListener('resize', () => {
+            revenueChart.resize();
+            revenueComposition.resize();
+        });
+
+        // 数字动画
+        anime({
+            targets: '.highlight-number',
+            innerHTML: [0, function(el) { return el.innerHTML; }],
+            duration: 2000,
+            delay: 1000,
+            round: 1,
+            easing: 'easeOutExpo'
+        });
+    </script>
+<script>
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            window.parent.postMessage('go-next', '*');
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            window.parent.postMessage('go-prev', '*');
+        }
+    });
+</script>
+</body>
+</html>

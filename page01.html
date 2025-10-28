@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时习·知享 - 项目路演PPT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        .hero-title {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 900;
+            background: linear-gradient(135deg, #4A90E2 0%, #F5A623 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 300;
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
+</head>
+<body class="h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 flex items-center justify-center overflow-hidden">
+    <div class="w-full h-screen flex items-center justify-center relative">
+        <!-- 背景装饰元素 -->
+        <div class="absolute top-20 left-20 w-32 h-32 bg-blue-100 rounded-full opacity-60 floating-element"></div>
+        <div class="absolute bottom-20 right-20 w-24 h-24 bg-orange-100 rounded-full opacity-60 floating-element" style="animation-delay: -2s;"></div>
+        <div class="absolute top-1/2 left-10 w-16 h-16 bg-blue-200 rounded-full opacity-40 floating-element" style="animation-delay: -4s;"></div>
+        
+        <!-- 主要内容区域 -->
+        <div class="text-center z-10 max-w-4xl mx-auto px-8">
+            <!-- Logo区域 -->
+            <div class="mb-6 fade-in">
+                <img src="logo.png" alt="时习·知享 Logo" class="w-24 h-24 mx-auto mb-6 rounded-2xl shadow-lg">
+            </div>
+            
+            <!-- 主标题 -->
+            <h1 class="hero-title text-5xl mb-6 fade-in" style="line-height: 1.1;">
+                时习·知享
+            </h1>
+            
+            <!-- 副标题 -->
+            <h2 class="subtitle text-3xl text-gray-600 mb-6 fade-in tracking-wide">
+                重新定义校园第三空间
+            </h2>
+            
+            <!-- 描述文字 -->
+            <p class="text-xl text-gray-500 mb-6 fade-in leading-relaxed max-w-2xl mx-auto">
+                数据驱动的校园智慧学习空间革新者
+            </p>
+            
+            <!-- 团队信息 -->
+            <div class="fade-in">
+                <div class="inline-flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg">
+                    <span class="text-gray-700 font-medium">创新团队</span>
+                    <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                    <span class="text-blue-600 font-medium">智慧校园项目</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部装饰 -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-orange-400 to-blue-400"></div>
+    </div>
+
+    <script>
+        // 页面加载动画
+        anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 1000
+        })
+        .add({
+            targets: '.fade-in',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(200)
+        });
+        
+        // Logo旋转动画
+        anime({
+            targets: 'img',
+            rotate: [0, 360],
+            duration: 2000,
+            easing: 'easeInOutQuad',
+            delay: 1500
+        });
+    </script>
+</body>
+</html>

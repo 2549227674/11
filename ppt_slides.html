@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时习·知享：数据驱动的校园智慧学习空间革新者</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <style>
+        .ppt-slide {
+            width: 1920px;
+            height: 1080px;
+            transform-origin: top left;
+            position: absolute;
+            overflow: hidden;
+        }
+        .title-slide {
+            background: linear-gradient(135deg, #4A90E2 0%, #F5A623 100%);
+        }
+        .content-slide {
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 py-8">
+    
+    <!-- 封面页 -->
+    <div class="ppt-slide title-slide flex items-center justify-center text-white">
+        <div class="text-center">
+            <h1 class="text-8xl font-black mb-8" style="font-family: 'Noto Serif SC', serif;">
+                时习·知享
+            </h1>
+            <h2 class="text-4xl font-light mb-12" style="font-family: 'Noto Sans SC', sans-serif;">
+                数据驱动的校园智慧学习空间革新者
+            </h2>
+            <div class="inline-flex items-center space-x-4 bg-white/20 backdrop-blur-sm rounded-full px-8 py-4">
+                <span class="text-xl font-medium">创新团队</span>
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <span class="text-xl font-medium">智慧校园项目</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 目录页 -->
+    <div class="ppt-slide content-slide flex items-center justify-center">
+        <div class="w-full max-w-6xl mx-auto px-16">
+            <h1 class="text-6xl font-bold text-center mb-16" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                项目概述
+            </h1>
+            <div class="grid grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background: #4A90E2;">1</div>
+                        <span class="text-3xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">市场痛点分析</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background: #F5A623;">2</div>
+                        <span class="text-3xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">解决方案</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background: #4A90E2;">3</div>
+                        <span class="text-3xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">市场潜力</span>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background: #F5A623;">4</div>
+                        <span class="text-3xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">商业模式</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background: #4A90E2;">5</div>
+                        <span class="text-3xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">财务预测</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 章节标题页 - 市场痛点 -->
+    <div class="ppt-slide content-slide flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-32 h-32 rounded-full mx-auto mb-12 flex items-center justify-center" style="background: #4A90E2;">
+                <span class="text-6xl text-white font-bold">01</span>
+            </div>
+            <h1 class="text-7xl font-bold mb-4" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                市场痛点分析
+            </h1>
+            <p class="text-2xl text-gray-600">数据驱动的深度洞察</p>
+        </div>
+    </div>
+    
+    <!-- 市场痛点内容页 -->
+    <div class="ppt-slide content-slide flex items-center">
+        <div class="w-full max-w-7xl mx-auto px-16">
+            <div class="grid grid-cols-2 gap-16 items-center">
+                <div>
+                    <h1 class="text-5xl font-bold mb-8" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                        数据证明：我们身边的'学习空间危机'
+                    </h1>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-6 h-6 rounded-full" style="background: #F5A623;"></div>
+                            <span class="text-2xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">45.68%的同学"总是"为找不到座位而烦恼</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-6 h-6 rounded-full" style="background: #4A90E2;"></div>
+                            <span class="text-2xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">超60%同学每周有1-4次小组讨论需求</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-6 h-6 rounded-full" style="background: #5DADE2;"></div>
+                            <span class="text-2xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">现有空间存在座位紧张、环境嘈杂等痛点</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="text-9xl font-black mb-4" style="color: #F5A623; font-family: 'Noto Serif SC', serif;">45.68%</div>
+                    <p class="text-2xl text-gray-600" style="font-family: 'Noto Sans SC', sans-serif;">的同学总是找不到座位</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 章节标题页 - 解决方案 -->
+    <div class="ppt-slide content-slide flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-32 h-132 rounded-full mx-auto mb-12 flex items-center justify-center" style="background: #F5A623;">
+                <span class="text-6xl text-white font-bold">02</span>
+            </div>
+            <h1 class="text-7xl font-bold mb-4" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                解决方案
+            </h1>
+            <p class="text-2xl text-gray-600">三位一体的创新模式</p>
+        </div>
+    </div>
+    
+    <!-- 解决方案内容页 -->
+    <div class="ppt-slide content-slide flex items-center">
+        <div class="w-full max-w-7xl mx-auto px-16">
+            <h1 class="text-5xl font-bold text-center mb-16" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                智慧自习空间 + 品质咖啡社交 + 活力社群连接
+            </h1>
+            <div class="grid grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center" style="background: #4A90E2;">
+                        <span class="text-4xl text-white">📚</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">智慧自习空间</h3>
+                    <p class="text-xl text-gray-600" style="font-family: 'Noto Sans SC', sans-serif;">在线预约<br>智能管理<br>座位保障</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center" style="background: #F5A623;">
+                        <span class="text-4xl text-white">☕</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">品质咖啡社交</h3>
+                    <p class="text-xl text-gray-600" style="font-family: 'Noto Sans SC', sans-serif;">5-15元时租<br>舒适环境<br>社交空间</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center" style="background: #5DADE2;">
+                        <span class="text-4xl text-white">👥</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">活力社群连接</h3>
+                    <p class="text-xl text-gray-600" style="font-family: 'Noto Sans SC', sans-serif;">学伴匹配<br>活动组织<br>学习共同体</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 章节标题页 - 市场潜力 -->
+    <div class="ppt-slide content-slide flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-32 h-32 rounded-full mx-auto mb-12 flex items-center justify-center" style="background: #4A90E2;">
+                <span class="text-6xl text-white font-bold">03</span>
+            </div>
+            <h1 class="text-7xl font-bold mb-4" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                市场潜力
+            </h1>
+            <p class="text-2xl text-gray-600">巨大的蓝海市场机会</p>
+        </div>
+    </div>
+    
+    <!-- 市场潜力内容页 -->
+    <div class="ppt-slide content-slide flex items-center">
+        <div class="w-full max-w-7xl mx-auto px-16">
+            <div class="grid grid-cols-2 gap-16 items-center">
+                <div class="text-center">
+                    <div class="text-8xl font-black mb-4" style="color: #4A90E2; font-family: 'Noto Serif SC', serif;">41%</div>
+                    <p class="text-3xl text-gray-600 mb-8" style="font-family: 'Noto Sans SC', sans-serif;">同学愿意付费</p>
+                    <div class="text-8xl font-black mb-4" style="color: #F5A623; font-family: 'Noto Serif SC', serif;">48%</div>
+                    <p class="text-3xl text-gray-600" style="font-family: 'Noto Sans SC', sans-serif;">接受5-10元/小时定价</p>
+                </div>
+                <div>
+                    <h1 class="text-5xl font-bold mb-8" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                        超41%同学愿意付费，商业模式验证成功
+                    </h1>
+                    <div class="space-y-6">
+                        <p class="text-2xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">
+                            市场调研显示，超过41%的同学愿意为优质学习空间付费，其中48%的用户接受5-10元/小时的定价区间。
+                        </p>
+                        <p class="text-2xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">
+                            校园学习空间市场规模巨大，竞争相对分散，我们的差异化定位将在蓝海市场中占据优势地位。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 章节标题页 - 商业模式 -->
+    <div class="ppt-slide content-slide flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-32 h-32 rounded-full mx-auto mb-12 flex items-center justify-center" style="background: #F5A623;">
+                <span class="text-6xl text-white font-bold">04</span>
+            </div>
+            <h1 class="text-7xl font-bold mb-4" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                商业模式
+            </h1>
+            <p class="text-2xl text-gray-600">多元化收入，可持续发展</p>
+        </div>
+    </div>
+    
+    <!-- 商业模式内容页 -->
+    <div class="ppt-slide content-slide flex items-center">
+        <div class="w-full max-w-7xl mx-auto px-16">
+            <h1 class="text-5xl font-bold text-center mb-16" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                多元化收入模式，构建可持续生态
+            </h1>
+            <div class="grid grid-cols-3 gap-12">
+                <div class="text-center p-8 rounded-3xl shadow-lg" style="background: linear-gradient(135deg, #4A90E2, #5DADE2);">
+                    <div class="text-5xl text-white font-bold mb-4">💰</div>
+                    <h3 class="text-3xl font-bold mb-4 text-white" style="font-family: 'Noto Serif SC', serif;">时租费用</h3>
+                    <p class="text-xl text-white" style="font-family: 'Noto Sans SC', sans-serif;">5-15元/小时<br>主要收入来源</p>
+                </div>
+                <div class="text-center p-8 rounded-3xl shadow-lg" style="background: linear-gradient(135deg, #F5A623, #F8C471);">
+                    <div class="text-5xl text-white font-bold mb-4">☕</div>
+                    <h3 class="text-3xl font-bold mb-4 text-white" style="font-family: 'Noto Serif SC', serif;">咖啡销售</h3>
+                    <p class="text-xl text-white" style="font-family: 'Noto Sans SC', sans-serif;">增加附加值<br>提升用户体验</p>
+                </div>
+                <div class="text-center p-8 rounded-3xl shadow-lg" style="background: linear-gradient(135deg, #5DADE2, #AED6F1);">
+                    <div class="text-5xl text-white font-bold mb-4">👥</div>
+                    <h3 class="text-3xl font-bold mb-4 text-white" style="font-family: 'Noto Serif SC', serif;">会员服务</h3>
+                    <p class="text-xl text-white" style="font-family: 'Noto Sans SC', sans-serif;">长期价值创造<br>增强用户粘性</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 章节标题页 - 财务预测 -->
+    <div class="ppt-slide content-slide flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-32 h-32 rounded-full mx-auto mb-12 flex items-center justify-center" style="background: #4A90E2;">
+                <span class="text-6xl text-white font-bold">05</span>
+            </div>
+            <h1 class="text-7xl font-bold mb-4" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                财务预测
+            </h1>
+            <p class="text-2xl text-gray-600">投资回报可期，增长潜力巨大</p>
+        </div>
+    </div>
+    
+    <!-- 财务预测内容页 -->
+    <div class="ppt-slide content-slide flex items-center">
+        <div class="w-full max-w-7xl mx-auto px-16">
+            <h1 class="text-5xl font-bold text-center mb-16" style="font-family: 'Noto Serif SC', serif; color: #2C3E50;">
+                3年收入增长曲线，投资回报可期
+            </h1>
+            <div class="grid grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="text-6xl font-black mb-4" style="color: #4A90E2; font-family: 'Noto Serif SC', serif;">第一年</div>
+                    <div class="text-4xl font-bold mb-2" style="color: #F5A623;">3-5万元</div>
+                    <p class="text-xl text-gray-600" style="font-family: 'Noto Sans SC', sans-serif;">月收覆盖1个校区</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-black mb-4" style="color: #4A90E2; font-family: 'Noto Serif SC', serif;">第二年</div>
+                    <div class="text-4xl font-bold mb-2" style="color: #F5A623;">10-15万元</div>
+                    <p class="text-xl text-gray-600" style="font-family: 'Noto Sans SC', sans-serif;">月收入扩展3个校区</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-black mb-4" style="color: #4A90E2; font-family: 'Noto Serif SC', serif;">第三年</div>
+                    <div class="text-4xl font-bold mb-2" style="color: #F5A623;">30万元+</div>
+                    <p class="text-xl text-gray-600" style="font-family: 'Noto Sans SC', sans-serif;">月收覆盖主要高校</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-2xl" style="font-family: 'Noto Sans SC', sans-serif; color: #2C3E50;">
+                    投资回报周期预计18-24个月，财务模型基于实际调研数据，为投资决策提供可靠依据
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 结束页 -->
+    <div class="ppt-slide title-slide flex items-center justify-center text-white">
+        <div class="text-center">
+            <h1 class="text-6xl font-bold mb-8" style="font-family: 'Noto Serif SC', serif;">
+                时习·知享团队感谢您的关注
+            </h1>
+            <div class="text-3xl mb-12" style="font-family: 'Noto Sans SC', sans-serif;">
+                期待与您共同重新定义校园学习空间！
+            </div>
+            <div class="inline-flex items-center space-x-4 bg-white/20 backdrop-blur-sm rounded-full px-8 py-4">
+                <span class="text-xl font-medium">让我们一起创造更美好的校园学习体验</span>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业模式画布</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(245, 166, 35, 0.1) 100%);
+            border: 2px solid #4A90E2;
+            transition: all 0.3s ease;
+        }
+        .highlight-box:hover {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.2) 0%, rgba(245, 166, 35, 0.2) 100%);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+    <div class="w-full h-screen p-8 flex flex-col">
+        <!-- 标题区域 -->
+        <div class="text-center mb-6 fade-in">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4" style="font-family: 'Noto Serif SC', serif;">
+                我们如何<span class="text-blue-600">创造价值</span>并实现盈利
+            </h1>
+            <p class="text-xl text-gray-600">完整的商业模式画布，系统性梳理商业价值逻辑</p>
+        </div>
+        
+        <!-- 商业模式画布图片 -->
+        <div class="flex-1 flex items-center justify-center fade-in">
+            <div class="relative">
+                <img src="business_model_canvas.png" alt="商业模式画布" class="w-full max-w-6xl rounded-3xl shadow-2xl">
+                
+                <!-- 高亮标注区域 -->
+                <div class="absolute top-1/4 right-1/4 w-48 h-32 highlight-box rounded-xl p-4 cursor-pointer" title="价值主张">
+                    <h4 class="font-bold text-blue-800 mb-2">价值主张</h4>
+                    <p class="text-sm text-gray-700">复合式学习体验</p>
+                </div>
+                
+                <div class="absolute top-1/2 left-1/4 w-48 h-32 highlight-box rounded-xl p-4 cursor-pointer" title="客户细分">
+                    <h4 class="font-bold text-blue-800 mb-2">客户细分</h4>
+                    <p class="text-sm text-gray-700">考研党、小组讨论用户</p>
+                </div>
+                
+                <div class="absolute bottom-1/4 right-1/4 w-48 h-32 highlight-box rounded-xl p-4 cursor-pointer" title="收入来源">
+                    <h4 class="font-bold text-blue-800 mb-2">收入来源</h4>
+                    <p class="text-sm text-gray-700">座位费+饮品销售+增值服务</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部重点说明 -->
+        <div class="mt-8 fade-in">
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl">
+                <div class="grid grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🎯</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">价值主张</h4>
+                        <p class="text-sm text-gray-600">智慧自习 + 品质咖啡 + 社群连接</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">👥</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">客户细分</h4>
+                        <p class="text-sm text-gray-600">考研党、小组讨论用户、自习需求者</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">💰</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">收入来源</h4>
+                        <p class="text-sm text-gray-600">座位费 + 饮品销售 + 增值服务</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载动画
+        anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 1000
+        })
+        .add({
+            targets: '.fade-in',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(200)
+        });
+
+        // 高亮框动画
+        anime({
+            targets: '.highlight-box',
+            scale: [0.95, 1],
+            opacity: [0.8, 1],
+            duration: 1500,
+            delay: anime.stagger(300, {start: 1500}),
+            easing: 'easeOutElastic(1, .8)'
+        });
+
+        // 鼠标悬停效果
+        document.querySelectorAll('.highlight-box').forEach(box => {
+            box.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    scale: 1.05,
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+            
+            box.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    scale: 1,
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+    </script>
+<script>
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            window.parent.postMessage('go-next', '*');
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            window.parent.postMessage('go-prev', '*');
+        }
+    });
+</script>
+</body>
+</html>
